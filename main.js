@@ -5,6 +5,10 @@ class Car {
     this.direction = direction
     this.location = location
   }
+  turn(course) {
+    this.direction = course
+    this.$img.classList = course
+  }
 }
 
 const image = document.createElement('img')
