@@ -7,8 +7,9 @@ class Car {
   }
 }
 
-
 const image = document.createElement('img')
 image.src = 'https://opengameart.org/sites/default/files/simple-travel-car-top_view.svg'
 
 document.body.appendChild(image)
+
+const ferarri = new Car(image, 0, null, [0,0])
