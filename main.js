@@ -4,6 +4,8 @@ class Car {
     this.speed = speed
     this.direction = direction
     this.location = location
+    this.started = false;
+    this.interval = undefined;
   }
   turn(course) {
     this.direction = course
@@ -28,14 +30,14 @@ class Car {
     }
   }
   start() {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.move()
-    }, 16)
+    }, 8)
+    this.started = true
   }
   stop() {
-    for (let i = 0; i < 100; i++) {
-      window.clearInterval(i)
-    }
+    clearInterval(this.interval)
+    this.started = false
   }
 }
 
@@ -47,15 +49,12 @@ document.body.appendChild(image)
 
 const ferarri = new Car(image, 5, 'east', [0, 0])
 
-let intervalState = false;
 document.body.addEventListener('keydown', (e) => {
   if (e.code === "Space") {
-    if (intervalState === false) {
+    if (ferarri.started === false) {
       ferarri.start();
-      intervalState = true;
-    } else if (intervalState === true) {
+    } else if (ferarri.started === true) {
       ferarri.stop();
-      intervalState = false;
     }
   }
   if (e.code === "ArrowUp") {
