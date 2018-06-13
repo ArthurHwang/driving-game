@@ -18,4 +18,19 @@ image.setAttribute("height", "100px")
 
 document.body.appendChild(image)
 
-const ferarri = new Car(image, 0, null, [0,0])
+const ferarri = new Car(image, 0, null, [0, 0])
+
+document.body.addEventListener('keydown', (e) => {
+  if (e.code === "ArrowUp") {
+    ferarri.turn('north')
+  }
+  if (e.code === "ArrowDown") {
+    ferarri.turn('south')
+  }
+  if (e.code === "ArrowRight") {
+    ferarri.turn('east')
+  }
+  if (e.code === "ArrowLeft") {
+    ferarri.turn('west')
+  }
+})
