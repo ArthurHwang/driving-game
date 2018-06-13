@@ -33,6 +33,11 @@ class Car {
       this.move()
     }, 16)
   }
+  stop() {
+    for (let i = 0; i < 100; i++) {
+      window.clearInterval(i)
+    }
+  }
 }
 
 const image = document.createElement('img')
@@ -40,14 +45,20 @@ image.src = 'https://opengameart.org/sites/default/files/simple-travel-car-top_v
 image.setAttribute("width", "200px")
 image.setAttribute("height", "100px")
 image.setAttribute("position", "relative")
-
 document.body.appendChild(image)
 
 const ferarri = new Car(image, 5, 'east', [0, 0])
 
+let intervalState = false;
 document.body.addEventListener('keydown', (e) => {
   if (e.code === "Space") {
-    ferarri.start()
+    if (intervalState === false) {
+      ferarri.start()
+      intervalState = true;
+    } else if (intervalState === true) {
+      ferarri.stop();
+      intervalState = false;
+    }
   }
   if (e.code === "ArrowUp") {
     ferarri.turn('north')
