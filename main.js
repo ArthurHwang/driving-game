@@ -9,6 +9,8 @@ class Car {
 
 const image = document.createElement('img')
 image.src = 'https://opengameart.org/sites/default/files/simple-travel-car-top_view.svg'
+image.setAttribute("width", "200px")
+image.setAttribute("height", "100px")
 
 document.body.appendChild(image)
 
