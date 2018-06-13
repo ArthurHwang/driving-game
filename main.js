@@ -10,17 +10,22 @@ class Car {
     this.$img.classList = course
   }
   move() {
+
     if (this.direction === 'north') {
       this.location[1] += this.speed
+      this.$img.style.top = this.location[1] + "px"
     }
     if (this.direction === 'south') {
       this.location[1] -= this.speed
+      this.$img.style.top = "-" + this.location[1] + "px"
     }
     if (this.direction === 'east') {
       this.location[0] += this.speed
+      this.$img.style.left = this.location[1] + "px"
     }
     if (this.direction === 'west') {
       this.location[0] -= this.speed
+      this.$img.style.left=  "-" +this.location[1] + "px"
     }
   }
 }
@@ -35,6 +40,7 @@ document.body.appendChild(image)
 const ferarri = new Car(image, 0, null, [0, 0])
 
 document.body.addEventListener('keydown', (e) => {
+  console.log(ferarri.location)
   if (e.code === "ArrowUp") {
     ferarri.turn('north')
   }
