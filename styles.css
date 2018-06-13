@@ -17,3 +17,7 @@ img {
 .west {
   transform: rotate(180deg);
 }
+
+body {
+  background-color: black;
+}

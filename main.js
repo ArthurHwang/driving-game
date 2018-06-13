@@ -43,10 +43,12 @@ image.setAttribute("position", "relative")
 
 document.body.appendChild(image)
 
-const ferarri = new Car(image, 5, null, [0, 0])
+const ferarri = new Car(image, 5, 'east', [0, 0])
 
 document.body.addEventListener('keydown', (e) => {
-  console.log(ferarri)
+  if (e.code === "Space") {
+    ferarri.start()
+  }
   if (e.code === "ArrowUp") {
     ferarri.turn('north')
   }
